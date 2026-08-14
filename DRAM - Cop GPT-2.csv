@@ -1,0 +1,19 @@
+,BG1,BG2,VG1,VG2,VG3,3D1,3D2,IGZO,,,HBMB,HBMV1,HBMV2
+kgCO2e,Baseline (6F2 BG + Planar CMOS Peri),Baseline (6F2 BG + Planar CMOS Peri + EUV),4F2 (PNC),4F2 DWB (FF Peri),4F2 Mo WL,3D DRAM (64 layers) - NO CRYO,3D DRAM (64 layers) - WITH CRYO,IGZO,,,HBM (8 6F2 die + Planar CMOS logic),HBM (8 4F2 die + 10 nm logic),HBM (12 die + 4 nm logic)
+Cemb/wafer,459.2,469.9,458.5,747.3,746.0,942.8,767.7,490.7,,Cemb/stack,6.74,6.62,10.08
+simulating as,1a,1b,0a,0b,0b,0c,0c,1a,,,hbm3,hbm4,hbm4
+closed Energy (pJ/bit),2.33,2.02,1.37,1.24,1.24,1.11,1.11,2.33,,,3.01,2.25,2.25
+seq Energy (pJ/bit),0.67,0.54,0.28,0.23,0.23,0.20,0.20,0.67,,,0.98,0.67,0.67
+,,,,,,,,,,,,,
+pJ to kWh conversion,2.78E-19,,,,,,,,,,,,
+,,,,,,,,,,,,,
+closed Energy (kWh/bit),6.47E-19,5.62E-19,3.82E-19,3.44E-19,3.44E-19,3.07E-19,3.07E-19,6.47E-19,,,8.37E-19,6.25E-19,6.25E-19
+seq Energy (kWh/bit),1.86E-19,1.50E-19,7.66E-20,6.52E-20,6.52E-20,5.47E-20,5.47E-20,1.86E-19,,,2.72E-19,1.85E-19,1.85E-19
+,,,,,,,,,,,,,
+bitwidth,32,,,,,,,,,,,,
+GPT-2 (# accesses/inference),196362748,32-bit access,,,,,,,,,,,
+CI_use (kgCO2e/kWh),0.38,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Cop all closed (kgCO2e),1.55E-09,1.34E-09,9.11E-10,8.22E-10,8.22E-10,7.34E-10,7.34E-10,1.55E-09,,,2.00E-09,1.49E-09,1.49E-09
+Cop 50/50 (kgCO2e),9.95E-10,8.49E-10,5.47E-10,4.89E-10,4.89E-10,4.32E-10,4.32E-10,9.95E-10,,,1.32E-09,9.67E-10,9.67E-10
+Cop all seq (kgCO2e),4.44E-10,3.58E-10,1.83E-10,1.56E-10,1.56E-10,1.31E-10,1.31E-10,4.44E-10,,,6.49E-10,4.41E-10,4.41E-10
