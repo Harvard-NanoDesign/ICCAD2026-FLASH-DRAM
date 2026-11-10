@@ -43,7 +43,7 @@ DRAM:
 
 ### Updates since the ICCAD 2026 paper
 
-Since the ICCAD 2026 paper, we have improved the process flows and carbon footprint modeling:
+Since the ICCAD 2026 paper, we have improved the process flows and carbon footprint modeling. The main changes are to the bonding modules in the dual wafer bonded cases (176_DWB in flash, and VG2, VG3, 3D1, and 3D2 cases in DRAM), which resorted them from spx_only to carbon-bearing steps under updated process areas, and the addition 3 more tiers of 2 IGZO FETs and 1 MIM capactor to the IGZO cases to match the density of 1a DRAM. The overall changes to embodied carbon per wafer for each case, respectively, are 28%, -1.9%, -1.8%, 15.2%, 13.7%, and 47.3%.
 
 - **Word line patterning etches in flash.** At higher stack heights, the word line patterning (WLP) steps are concatenated in the flow. To account for etch depth, the `WLP3_etch` and `WLP4_etch` process areas (up to 72 layers) use 4× the energy and emissions of a HAR etch, `WLP5_etch` (up to 36 layers) uses 2×, and `WLP6_etch` to `WLP8_etch` (up to 18 layers) are one HAR etch each. This matches the assumptions in the paper and does not change its results.
 - **More detailed process areas.** Process areas now distinguish ion implantation, diffusion, wafer cleans, resist steps, and CMP (`Ion_implantation`, `Diffusion`, `Wafer_clean`, `Resist`, and `CMP`), with the same energies as in the paper (see `config/carbon_config.yaml`).
