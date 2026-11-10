@@ -6,7 +6,7 @@ Die area for all flash chips was fixed to 50 sq mm, making 1130 good die per 300
 
 | 3D NAND Flash GDS |  |  |  |
 | :---- | :---- | :---- | ----- |
-| **Configuration** | **Array Density** | **Fill Factor** | **Embodied/Gb (kg CO2e/Gb)** |
+| **Configuration** | **Array Density (Gb per sq mm)** | **Fill Factor (%)** | **Embodied/Gb (kg CO2e/Gb)** |
 | **32L** | 3.4 | 0.6176865978 | 0.002055892609 |
 | **176L** | 18.7 | 0.6591912309 | 0.0006674290293 |
 | **512L** | 54.3 | 0.6652439899 | 0.0004416815971 |
@@ -24,7 +24,7 @@ Die area for all DRAM chips was fixed to 100 sq mm, making 562 good die per 300 
 
 | DRAM GDS |  |  |  |  |
 | :---- | :---- | :---- | :---- | :---- |
-| **Configuration** | **Array Density** | **Fill Factor** | **Wordline pitch** | **Bitline pitch** |
+| **Configuration** | **Array Density (Gb per sq mm)** | **Fill Factor (%)** | **Wordline pitch (nm)** | **Bitline pitch (nm)** |
 | **BG1** | 0.6613756614 | 0.48384 | 36 | 42 |
 | **BG2** | 0.754147813 | 0.57018 | 34 | 39 |
 | **VG1** | 1.282051282 | 0.624 | 26 | 30 |
