@@ -1,0 +1,30 @@
+# 3D2 (DRAFT 2026-10-31): 3D1_1 (iccad/oct31/3D1_1/3D1_1.csv) with its 4 stack-cutting etches (isolation slot, capacitor slit, bit-line slit, contact slit) charged per bilayer, cryo: one full-energy cryo etch per 2.5 bilayers (paper 3D2: 25.6 per 64 bilayers, rounded up to 26):
+# each is 1 real row + 25 etch_noop rows in Cryo_etch (64 bilayers). Built by iccad/oct31/3d1_vg2cmos/make_3d_har_variants.py.
+# 3D1: DWB 3D DRAM Rev E -- CMOS_wafer hybrid-bonded to the 3D DRAM array wafer (DRAM_wafer's "Flip and Bond"
+# + flip_structure puts the CMOS wafer at the bottom), with VG2's DRAM BEOL on the array's back side
+# (iccad/oct30/add_3d1_back_beol.py). Both routes are in the flow CSV; spx runs CMOS_wafer, then DRAM_wafer.
+# The flow CSV that is run (other CSVs in this folder are not read).
+csv: 3D2_final.csv
+route: DRAM_wafer
+# EMU_CELL is placed at (0, 57) in DWB3D_REVE_TOP, with VG2_layout.gds layers 1410-1440 added for the back-side
+# BEOL. The GDS has no layer 50 (ALN), which a CSV litho row uses, so that step patterns nothing in spx.
+# _david (2026-11-02): cell shrunk to Lee et al. (arXiv 2603.12461) 350 nm per cell (0.7 um mirrored pair, capacitor
+# 500 -> 100 nm), one BL contact row per side (64 columns), clip 21.3 x 0.7 um; lateral recesses at seq 10780,
+# 11240, 11750, 11780 rescaled to match. Built by ~/Documents/CarbonEDA/scripts/dram/shrink_3d_cell.py; rerun that.
+# Layer 0, PROBE_PAD (layers 40-42) and shapes outside the clip were removed.
+layout: 3D2_layout.gds
+clip:
+  name: EMU
+  coords: [0, 57, 21.3, 57.7]   # x0 y0 x1 y1 (um): the EMU_CELL window
+
+# Set to also report carbon per die.
+die_area_mm2: null
+
+# Technology to compare with in the report (its changed and new steps are outlined), e.g. flash/baseline.
+baseline: null
+
+# svisual views for each step (tcl/svisual_render.tcl).
+render:
+  resolution: 1024x768
+  zoom_box: null   # [x0, x1, y0, y1, z0, z1] in um; null = whole structure
+  cuts: []

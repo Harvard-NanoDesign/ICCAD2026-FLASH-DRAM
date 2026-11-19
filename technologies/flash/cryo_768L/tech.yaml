@@ -1,0 +1,26 @@
+# cryo_768L: 3D NAND flow; inputs set up from the iccad CSV for CarbonEDA.
+# CSV this technology's cryo_768L_steps.csv was renamed from.
+source:
+  csv: CRYO_768L_788pairs_Array_Route_steps.csv
+  set_up: 2026-10-17
+# The flow CSV that is run (other CSVs in this folder are not read).
+csv: cryo_768L_final.csv
+route: cryo_768L
+layout: cryo_768L_layout.oas
+clip:
+  name: H1
+  coords: [-1.0, -1.434, 1.0, -0.631]   # x0 y0 x1 y1 (um), same window as flash/32L
+
+# Set to also report carbon per die.
+die_area_mm2: null
+
+# Technology to compare with in the report (its changed and new steps are outlined).
+baseline: flash/baseline
+
+# svisual views for each step (tcl/svisual_render.tcl).
+render:
+  resolution: 1024x768
+  zoom_box: null   # [x0, x1, y0, y1, z0, z1] in um; null = whole structure
+  # Cut planes, e.g. [{axis: z, at: 0.0, range: {y: [-0.1, 0.1], x: [-0.1, 0.1]}}].
+  # Ranges are applied in the order listed; svisual keeps the aspect ratio, so the last one wins.
+  cuts: []

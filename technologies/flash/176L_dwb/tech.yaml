@@ -1,0 +1,24 @@
+# 176L_dwb: VG2's FinFET CMOS wafer (dram/VG2, VG3 FF / ASAP7 DFF) hybrid-bonded (flipped) onto the 176L NAND array
+# wafer. 2026-10-31: the original 176L_dwb (Hynix planar CMOS; now in iccad/oct31/176L_dwb_old) with its CMOS replaced.
+# Built by /project/nanodesign/iccad/oct31/176l_dwb_v2/make_176l_dwb_v2.py (change IDs W1-W16, CHANGELOG.md there).
+# The flow CSV that is run (other CSVs in this folder are not read).
+# It holds two routes: CMOS_wafer, then NAND_wafer, whose "Flip and Stack" bond_structure step bonds CMOS_wafer on top.
+csv: 176L_dwb_final.csv
+route: NAND_wafer
+layout: 176L_dwb_layout.GDS   # original NAND layers + VG2 CMOS tiled (layers +2000) + bond chain
+clip:   # W11 (D1, D7): slit + fully replaced word lines, CMOS tiles (7,4) and (8,4) whole, pad 14, V10 on CSP
+  name: B2
+  coords: [-1.026, -0.406, -0.118, 0.102]   # x0 y0 x1 y1 (um), on the 2 nm grid; the layout covers [-4, -2, 5, 2]
+  # V3A/V3B/V10-on-V3A path: clip S1 [-3.010, -0.330, -1.800, 0.194] (iccad/oct31/176l_dwb_v2/make_check.py)
+
+# Set to also report carbon per die.
+die_area_mm2: null
+
+# Technology to compare with in the report (its changed and new steps are outlined).
+baseline: flash/baseline
+
+# svisual views for each step (tcl/svisual_render.tcl).
+render:
+  resolution: 1024x768
+  zoom_box: null   # [x0, x1, y0, y1, z0, z1] in um; null = whole structure
+  cuts: []

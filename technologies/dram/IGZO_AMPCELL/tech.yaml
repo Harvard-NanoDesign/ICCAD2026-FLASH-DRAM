@@ -1,0 +1,31 @@
+# IGZO_AMPCELL (was igzo/igzo_4layer, then ampcell_igzo; moved here 2026-11-05)
+# DRAFT, built 2026-10-29 by ~/Documents/CarbonEDA/scripts/igzo/build_igzo_dkong.py; rerun that, don't edit here.
+# IGZO amp cell, monolithic on a CMOS wafer, over M3: igzo0, then igzo<k> + MIM cap<k>, k = 1..4, on the ICCAD
+# layout (igzo_iccad.gds flattened, plus generated mandrel layers). CMOS: logic/ff (Harvard 7 nm FinFET FEOL,
+# 2:1 BEOL) to M3; tiers: dgreyste's IGZO_1layer_steps.csv rows with spx parameters added. Over the last cap: BG1's top metals
+# (V1, M2, M3 + V2, to ILD 3-1 SiCN; layers 410-440), added 2026-10-30 by ~/Documents/CarbonEDA/scripts/igzo/add_bg1_metals.py.
+source:
+  cmos: technologies/logic/ff/ff_steps.csv, Wafer Start through M3
+  tiers: /project/nanodesign/CarbonEDA/technologies/dram_temp/igzo_1layer/IGZO_1layer_steps.csv (dgreyste's rows; igzo0 once, then igzo<k> + MIM cap<k> for k = 1..4, as the n7_amp stack)
+  layout: igzo_iccad.gds (flattened)
+  built: 2026-10-29
+# The flow CSV that is run (other CSVs in this folder are not read).
+# igzo_ampcell_final.csv is igzo_4layer_steps.csv with modules merged and steps renamed (iccad/oct31/IGZO_LOGIC_RULES.md, 2026-10-31).
+csv: IGZO_AMPCELL_final.csv
+route: IGZO_AMPCELL
+layout: IGZO_AMPCELL_layout.gds
+clip:
+  name: H53
+  coords: [1.296, 0.432, 1.458, 0.486]   # x0 y0 x1 y1 (um): one 162 x 54 nm cell, (8, 8) of the 16 x 16 array
+
+# Set to also report carbon per die.
+die_area_mm2: null
+
+# svisual views for each step (tcl/svisual_render.tcl).
+render:
+  resolution: 1024x768
+  zoom_box: null   # [x0, x1, y0, y1, z0, z1] in um; null = whole structure
+  # Cut planes, e.g. [{axis: z, at: 0.0, range: {y: [-0.1, 0.1], x: [-0.1, 0.1]}}].
+  cuts:   # x across the fins and through the IGZO top gate, y along the IGZO S/D-gate-S/D and the via column
+    - {axis: x, at: 1.352}
+    - {axis: y, at: 0.468}

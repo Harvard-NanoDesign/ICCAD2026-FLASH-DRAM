@@ -1,0 +1,26 @@
+# VG3: VG2 with the DRAM word-line metal on Mo instead of W/TiN.
+# 2026-10-31: the DRAM bit-line side is bonded to the CMOS wafer and the storage-node plugs + capacitors are built on
+# the thinned back; CMOS contact/M5/M6/fin fixes and the M12-to-CMOS route (change log V1-V15, C1-C7, G1).
+# Built by iccad/oct31/vg2_v2/make_vg2_v2.py --tech VG3 (originals in iccad/oct31/VG3_old).
+# The flow CSV that is run (other CSVs in this folder are not read; VG3.csv keeps the per-row comments).
+csv: VG3_final.csv
+route: DRAM_wafer
+layout: VG3_layout.gds
+clip:
+  name: B1
+  coords: [-0.026, -0.252, 0.426, 0.252]   # x0 y0 x1 y1 (um), on the 2 nm grid, as dram/VG2
+
+# Set to also report carbon per die.
+die_area_mm2: null
+
+# Technology to compare with in the report (its changed and new steps are outlined), e.g. flash/baseline.
+baseline: null
+
+# svisual views for each step (tcl/svisual_render.tcl).
+render:
+  resolution: 1024x768
+  zoom_box: null   # [x0, x1, y0, y1, z0, z1] in um; null = whole structure
+  cuts:
+    - {axis: x, at: 0.182}   # along word line 5 (pillars, WL contact) and the CMOS below
+    - {axis: x, at: 0.08}    # through the BL contact, M1 pad and V2
+    - {axis: y, at: 0.126}   # along bit line 8 (BL contact, bond via, pad)
